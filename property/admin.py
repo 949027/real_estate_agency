@@ -8,15 +8,16 @@ class ComplaintAdmin(admin.ModelAdmin):
 
 
 class FlatAdmin(admin.ModelAdmin):
+    raw_id_fields = ('liked_by',)
     readonly_fields = ['created_at']
     search_fields = ['town', 'owner', 'address']
-    list_display_links = None
+    list_display_links = ['address']
     list_display = [
         'address',
         'price',
         'new_building',
         'construction_year',
-        'town'
+        'town',
     ]
     list_editable = ['new_building']
     list_filter = ['new_building', 'rooms_number', 'floor']
