@@ -1,5 +1,12 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
+
+
+class Complaint(models.Model):
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    flat = models.ForeignKey('Flat', on_delete=models.CASCADE)
+    text = models.TextField()
 
 
 class Flat(models.Model):
