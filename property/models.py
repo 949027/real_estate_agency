@@ -4,6 +4,17 @@ from django.contrib.auth.models import User
 from phonenumber_field.modelfields import PhoneNumberField
 
 
+class Owner(models.Model):
+    name = models.CharField('ФИО владельца', max_length=200)
+    phonenumber = models.CharField('Номер владельца', max_length=20)
+    pure_phone = PhoneNumberField('Нормализованный номер владельца', blank=True)
+    flats = models.ManyToManyField(
+        'Flat',
+        related_name='owners',
+        verbose_name = 'Квартиры в собственности',
+    )
+
+
 class Complaint(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     flat = models.ForeignKey('Flat', on_delete=models.CASCADE)
