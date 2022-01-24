@@ -17,6 +17,9 @@ class Owner(models.Model):
         verbose_name='Квартиры в собственности',
     )
 
+    def __str__(self):
+        return self.name
+
 
 class Complaint(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
