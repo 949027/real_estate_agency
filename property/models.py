@@ -22,9 +22,9 @@ class Owner(models.Model):
 
 
 class Complaint(models.Model):
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='complaints')
-    flat = models.ForeignKey('Flat', on_delete=models.CASCADE, related_name='complaints')
-    text = models.TextField()
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='complaints', verbose_name='Автор')
+    flat = models.ForeignKey('Flat', on_delete=models.CASCADE, related_name='complaints', verbose_name='Квартира')
+    text = models.TextField('Текст жалобы')
 
 
 class Flat(models.Model):
@@ -72,6 +72,7 @@ class Flat(models.Model):
         User,
         related_name="liked_flats",
         blank=True,
+        verbose_name='Кому нравится'
     )
 
     def __str__(self):
