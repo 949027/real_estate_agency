@@ -70,7 +70,7 @@ class Flat(models.Model):
         db_index=True)
     liked_by = models.ManyToManyField(
         User,
-        related_name="liked_flats",
+        related_name='liked_flats',
         blank=True,
         verbose_name='Кому нравится'
     )
