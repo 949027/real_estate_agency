@@ -22,8 +22,8 @@ class Owner(models.Model):
 
 
 class Complaint(models.Model):
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
-    flat = models.ForeignKey('Flat', on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='complaints')
+    flat = models.ForeignKey('Flat', on_delete=models.CASCADE, related_name='complaints')
     text = models.TextField()
 
 
