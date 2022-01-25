@@ -9,7 +9,6 @@ def create_relations(apps, schema_editor):
     for owner in Owner.objects.all():
         flats = Flat.objects.filter(owner=owner.name)
         owner.flats.set(flats)
-        print(flats)
 
 
 class Migration(migrations.Migration):
